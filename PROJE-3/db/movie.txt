@@ -1,0 +1,5 @@
+Movie_Id	Movie_Title	Movie_Genre	Movie_Release_Year	Movie_Language	Movie_Rating	Movie_Censorship	Movie_Story	Movie_Budget	Studio_Id
+1	Heeyyoo	Action	1997	Turkish	4.9	+13	-	1	1997
+1	Hdfaf	Action	1997	Turkish	4.9	+13	-	1	1997
+1	Heeyasdyoo	Action	1997	Turkish	4.9	+13	-	1	1997
+1	Heeyasdadyoo	Action	1997	Turkish	4.9	+13	-	1	1997

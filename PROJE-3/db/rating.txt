@@ -1,0 +1,2 @@
+Rating_Id	Rating	User_Id	Movie_Id
+1	4.5	3	4

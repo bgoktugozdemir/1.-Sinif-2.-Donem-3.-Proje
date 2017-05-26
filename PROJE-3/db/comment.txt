@@ -1,0 +1,3 @@
+Comment_Id	Comment_Time	Comment	Movie_Id	User_Id
+1	15645	Yorum	2	3
+2	4545	Hebele	3	4
