@@ -11,18 +11,26 @@ using namespace std;
 class Comment;
 class Rating;
 
+enum userType
+{
+	Administrator,
+	Writer,
+	MovieCritic,
+	Member
+};
+
 class User
 {
 public:
 	int UserId;
-    string UserType;
+	userType UserType;
 	string UserName;
 	string UserPassword;
 	string UserEmail;
 	list <Comment*> comments;
 	list <Rating*> ratings;
 
-    User(int UserId, string UserType, string UserName, string UserPassword, string UserEmail);
+	User(int UserId, userType UserType, string UserName, string UserPassword, string UserEmail);
     User();
 	~User();
 

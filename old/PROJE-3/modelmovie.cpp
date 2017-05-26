@@ -60,12 +60,18 @@ bool ModelMovie::setHeaderData(int section, Qt::Orientation orientation, const Q
 
 int ModelMovie::rowCount(const QModelIndex &parent) const
 {
-    return lists->size();
+    //if (parent.isValid())
+        return lists->size();
+
+    // FIXME: Implement me!
 }
 
 int ModelMovie::columnCount(const QModelIndex &parent) const
 {
-    return 10;
+    //if (parent.isValid())
+        return 10;
+
+    // FIXME: Implement me!
 }
 
 QVariant ModelMovie::data(const QModelIndex &index, int role) const

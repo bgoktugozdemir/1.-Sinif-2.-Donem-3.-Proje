@@ -1,3 +1,5 @@
+//Interface.cpp içindeki 147. satýrdaki void fonksiyonundaki id gibi diðerlerine yap. +++
+//
 
 #pragma once
 #include <algorithm>
@@ -21,3 +23,14 @@
 #include "User.h"
 
 #define Version 1.10
+
+
+/*
+enum userType
+{
+	Administrator,
+	Writer,
+	MovieCritic,
+	Member
+};
+*/

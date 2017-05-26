@@ -3,7 +3,6 @@
 #include <QList>
 #include <QAbstractTableModel>
 #include "Rating.h"
-using namespace std;
 class ModelRating : public QAbstractTableModel
 {
     Q_OBJECT

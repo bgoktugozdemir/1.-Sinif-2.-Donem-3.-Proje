@@ -31,13 +31,12 @@ SOURCES += main.cpp\
     Interface.cpp \
     Movie.cpp \
     Rating.cpp \
+    Source.cpp \
     Studio.cpp \
     User.cpp \
     modelmovie.cpp \
     modelcomment.cpp \
-    modelrating.cpp \
-    modelstudio.cpp \
-    modeluser.cpp
+    modelrating.cpp
 
 HEADERS  += mainwindow.h \
     Background.h \
@@ -52,9 +51,7 @@ HEADERS  += mainwindow.h \
     modelmovie.h \
     modelcomment.h \
     modelcomment.h \
-    modelrating.h \
-    modelstudio.h \
-    modeluser.h
+    modelrating.h
 
 FORMS    += mainwindow.ui
 

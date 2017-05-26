@@ -1,15 +1,15 @@
-#ifndef MODELRATING_H
-#define MODELRATING_H
+#ifndef MODELMOVIE_H
+#define MODELMOVIE_H
 #include <QList>
 #include <QAbstractTableModel>
-#include "Rating.h"
+#include "Movie.h"
 using namespace std;
-class ModelRating : public QAbstractTableModel
+class ModelMovie : public QAbstractTableModel
 {
     Q_OBJECT
 
 public:
-    explicit ModelRating(list<Rating*> * listData,QObject *parent = 0);
+    explicit ModelMovie(list<Movie*> * listData,QObject *parent = 0);
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -27,8 +27,9 @@ public:
                  int role = Qt::EditRole) override;
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
-    QList<Rating*> * lists;
+    QList<Movie*> * lists;
+
 private:
 };
 
-#endif // MODELRATING_H
+#endif // MODELMOVIE_H
