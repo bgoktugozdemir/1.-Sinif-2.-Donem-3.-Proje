@@ -31,5 +31,4 @@ public:
 
 private:
 };
-
 #endif // MODELSTUDIO_H

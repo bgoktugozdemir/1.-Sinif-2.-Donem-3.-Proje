@@ -101,3 +101,10 @@ void MainWindow::on_btnDelete_clicked()
     else if (tableName == "Studio")  {  database->Studios.remove    (((ModelStudio*)    item.model())->lists->at(selectedRow));          on_btnStudio_clicked();   }
     else if (tableName == "User")    {  database->Users.remove      (((ModelUser*)      item.model())->lists->at(selectedRow));          on_btnUser_clicked();     }
 }
+
+void MainWindow::on_ver_clicked()
+{
+    QMessageBox popup;
+    popup.setText("Updates");
+    popup.exec();
+}

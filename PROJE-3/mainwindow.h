@@ -5,7 +5,6 @@
 #include "Background.h"
 #include "Database.h"
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -37,6 +36,8 @@ private slots:
     void on_btnStudio_clicked();
 
     void on_btnUser_clicked();
+
+    void on_ver_clicked();
 
 private:
 

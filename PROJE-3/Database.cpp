@@ -404,13 +404,12 @@ bool Database::SaveStudio(string path)
 		file << "Studio_Id	StudioName	StudioInfo";
 		string tab = "	";
 		list<Studio*>::iterator i;
-
-		int StudioId=-1;
-		string StudioName;
-		string StudioInfo;
-
 		for (i = Studios.begin(); i != Studios.end(); i++)
 		{
+            int StudioId = (*i)->StudioId;
+            string StudioName = (*i)->StudioName;
+            string StudioInfo = (*i)->StudioInfo;
+
 			file << endl << StudioId << tab << StudioName << tab << StudioInfo;
 		}
 		file.close();

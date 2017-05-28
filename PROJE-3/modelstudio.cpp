@@ -1,4 +1,5 @@
 #include "modelstudio.h"
+#include <QDebug>
 
 ModelStudio::ModelStudio(list<Studio*> * listData, QObject *parent)
     : QAbstractTableModel(parent)
@@ -6,12 +7,13 @@ ModelStudio::ModelStudio(list<Studio*> * listData, QObject *parent)
     lists = new QList<Studio*>();
     list<Studio*>::iterator i;
     for (i = listData->begin(); i != listData->end(); i++) {
-    lists->append(*i);
+       lists->append(*i);
     }
 }
 
 QVariant ModelStudio::headerData(int section, Qt::Orientation orientation, int role) const
 {
+
     if (role == Qt::DisplayRole)
     {
         if (orientation == Qt::Horizontal) {
@@ -25,6 +27,8 @@ QVariant ModelStudio::headerData(int section, Qt::Orientation orientation, int r
                 return QString("Info");
             }
         }
+
+
     }
 
     return QVariant();
@@ -43,18 +47,12 @@ bool ModelStudio::setHeaderData(int section, Qt::Orientation orientation, const 
 
 int ModelStudio::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
-        return lists->size();
-
-    // FIXME: Implement me!
+    return lists->size();
 }
 
 int ModelStudio::columnCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
-        return 3;
-
-    // FIXME: Implement me!
+    return 3;
 }
 
 QVariant ModelStudio::data(const QModelIndex &index, int role) const
@@ -78,7 +76,8 @@ QVariant ModelStudio::data(const QModelIndex &index, int role) const
             return QString::fromStdString(lists->at(row)->StudioInfo);
         }
     }
-        return QVariant();
+
+    return QVariant();
 }
 
 bool ModelStudio::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -91,7 +90,8 @@ bool ModelStudio::setData(const QModelIndex &index, const QVariant &value, int r
         if(col == 0)        data->StudioId =  value.toInt();
         else if(col == 1)   data->StudioName = value.toString().toStdString();
         else if(col == 2)   data->StudioInfo = value.toString().toStdString();
-        }
+
+    }
     return true;
 }
 
@@ -99,4 +99,5 @@ Qt::ItemFlags ModelStudio::flags(const QModelIndex &index) const
 {
 
     return Qt::ItemIsEditable | QAbstractTableModel::flags(index);
+
 }
