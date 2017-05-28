@@ -1,6 +1,6 @@
 #include "User.h"
 
-User::User(int UserId, string UserType, string UserName, string UserPassword, string UserEmail)
+User::User(int UserId, userType UserType, string UserName, string UserPassword, string UserEmail)
 {
 	this->UserId = UserId;
 	this->UserType = UserType;
@@ -12,7 +12,7 @@ User::User(int UserId, string UserType, string UserName, string UserPassword, st
 User::User()
 {
     this->UserId = 0;
-    this->UserType = "Member";
+	this->UserType = Member;
 	this->UserName = "";
 	this->UserPassword = "";
 	this->UserEmail = "";

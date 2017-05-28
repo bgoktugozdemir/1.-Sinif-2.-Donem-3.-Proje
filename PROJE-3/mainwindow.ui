@@ -266,7 +266,7 @@
      <number>-1</number>
     </property>
     <property name="text">
-     <string>v2.0.3</string>
+     <string>v2.0.4</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>

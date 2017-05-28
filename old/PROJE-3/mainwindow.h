@@ -5,7 +5,6 @@
 #include "Background.h"
 #include "Database.h"
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -19,7 +18,7 @@ public:
     ~MainWindow();
     void Customize(Database * database, Background * background);
     QStringList tableNames;
-
+    Ui::MainWindow *ui;
 private slots:
 
     void on_btnMovie_clicked();
@@ -32,8 +31,16 @@ private slots:
 
     void on_btnRating_clicked();
 
+    void on_btnDelete_clicked();
+
+    void on_btnStudio_clicked();
+
+    void on_btnUser_clicked();
+
+    void on_ver_clicked();
+
 private:
-    Ui::MainWindow *ui;
+
     Database * database;
     Background * background;
     QString tableName;

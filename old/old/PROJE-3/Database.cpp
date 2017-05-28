@@ -287,7 +287,8 @@ void Database::ReadUser(string path)
 		file.getline(line, 1000);
 
 		int UserId;
-        string UserType="Member";
+		userType UserType=Member;
+		int usertype_id;
 		string UserName;
 		string UserPassword;
 		string UserEmail;
@@ -300,8 +301,8 @@ void Database::ReadUser(string path)
 				isFirstRow = false;
 				continue;
 			}
-            file >> UserId >> UserType >> UserName >> UserPassword >> UserEmail;
-            User * addThis = new User(UserId, UserType, UserName, UserPassword, UserEmail);
+			file >> UserId >> usertype_id >> UserName >> UserPassword >> UserEmail; //HATA VERÝYOR (UserType'ý usertype_id yapýnca düzeldi)
+			User * addThis = new User(UserId, UserType, UserName, UserPassword, UserEmail); //UserType mý usertype_id mi?
 			Users.push_back(addThis);
 		}
 		file.close();
@@ -404,12 +405,13 @@ bool Database::SaveStudio(string path)
 		file << "Studio_Id	StudioName	StudioInfo";
 		string tab = "	";
 		list<Studio*>::iterator i;
+
+		int StudioId=-1;
+		string StudioName;
+		string StudioInfo;
+
 		for (i = Studios.begin(); i != Studios.end(); i++)
 		{
-            int StudioId = (*i)->StudioId;
-            string StudioName = (*i)->StudioName;
-            string StudioInfo = (*i)->StudioInfo;
-
 			file << endl << StudioId << tab << StudioName << tab << StudioInfo;
 		}
 		file.close();
@@ -433,7 +435,7 @@ bool Database::SaveUser(string path)
 		for (i = Users.begin(); i != Users.end(); i++)
 		{
 			int UserId = (*i)->UserId;
-            string UserType = (*i)->UserType;
+			userType UserType = (*i)->UserType;
 			string UserName = (*i)->UserName;
 			string UserPassword = (*i)->UserPassword;
 			string UserEmail = (*i)->UserEmail;
@@ -561,7 +563,7 @@ void Database::RelationRatingsHaveMovies()
 
 void Database::RemoveRelationCommentsHaveUsers(User * deleteThis)
 {
-    //CommentsHaveUsers.erase(find(CommentsHaveUsers.begin(), CommentsHaveUsers.end(), deleteThis->UserId));
+	//CommentsHaveUsers.erase(find(CommentsHaveUsers.begin(), CommentsHaveUsers.end(), deleteThis->UserId)); //UserId mi? CommentId mi?
 	CommentsHaveUsers.remove(deleteThis->UserId);
 }
 

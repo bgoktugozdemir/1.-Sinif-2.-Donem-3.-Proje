@@ -374,18 +374,25 @@ void Interface::DeleteMovies()						//ÖðrenciÝþleri Classýna alternatif bul.
 	cout << "Please enter the movie's id -> ";
 	int id;
 	cin >> id;
+	if (id = 0)
+	{
+		Start();
+	}
+	else
+	{
 
-    if (Backgrounds->RemoveTheMovie(id) == false)
-    {
-        cout << "Operation failed! Please, make sure the movie's id is correct. " << endl;
-        DeleteMovies();
-    }
-    else
-    {
-        cout << id << "Operation successful!" << endl;
+		if (Backgrounds->RemoveTheMovie(id) == false)
+		{
+			cout << "Operation failed! Please, make sure the movie's id is correct. " << endl;
+			DeleteMovies();
+		}
+		else
+		{
+			cout << id << "Operation successful!" << endl;
 
-        Datas->SaveFiles();
-    }
+			Datas->SaveFiles();
+		}
+	}
 }
 
 void Interface::ListRatings()
@@ -603,7 +610,7 @@ void Interface::AddStudios()
 {
 	cout << "You will add a new studio..." << endl;
 
-    Studio *newStudio = new Studio(-1, "", "");
+	Studio *newStudio = new Studio(-1, "", "");
 
 	EditStudios(newStudio);
 
@@ -702,10 +709,34 @@ void Interface::EditUsers(User * user)
 	}
 
 	//USERTYPE
-    cout << "User's Type: " << user->UserType << endl
-         << "Please enter User's Type: ";
-    string newUserType = "Member";
-    cin >> newUserType;
+	cout << "User's Type: " << user->UserType << endl;
+	userType newUserType = Member;
+	cout << "a - Administrator" << endl << "b - Writer" << endl <<"c - Movie Critic" << endl << "d - Member" << endl << "Please select a user type: ";
+	char Selection = _getch();
+	switch (Selection)
+	{
+	case 'a':
+		newUserType = Administrator;
+		break;
+
+	case 'b':
+		newUserType = Writer;
+		break;
+
+	case 'c':
+		newUserType = MovieCritic;
+		break;
+
+	case 'd':
+		newUserType = Member;
+		break;
+
+	default:
+		newUserType = Member;
+		break;
+	}
+
+	cout << endl;
 
 	//NAME
 	cout << "User's Name: " << user->UserName << endl
@@ -727,7 +758,7 @@ void Interface::EditUsers(User * user)
 
 	//CHANGES
 	user->UserId = newUserId;
-    user->UserType = newUserType;
+	user->UserType = newUserType;
 	user->UserName = newUserName;
 	user->UserPassword = newUserPassword;
 	user->UserEmail = newUserEmail;
@@ -739,7 +770,7 @@ void Interface::AddUsers()
 {
 	cout << "You will add a new user..." << endl;
 
-    User *newUser = new User(-1, "Member", "", "", "");
+	User *newUser = new User(-1, Member, "", "", "");
 
 	EditUsers(newUser);
 
@@ -873,7 +904,7 @@ void Interface::ShowStudios(list<Studio*>& list)
 
 void Interface::ShowUsers(list<User*>& list)
 {
-    //UserId >> UserType >> UserName >> UserPassword >> UserEmail
+	//UserId >> usertype_id >> UserName >> UserPassword >> UserEmail
 	cout << "User_Id\tUserType\tUser_Name\tUser_Password\tUser_Email" << endl;
 	for (auto i = list.begin(); i != list.end(); i++)
 	{

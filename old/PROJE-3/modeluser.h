@@ -1,15 +1,15 @@
-#ifndef MODELRATING_H
-#define MODELRATING_H
+#ifndef MODELUSER_H
+#define MODELUSER_H
 #include <QList>
 #include <QAbstractTableModel>
-#include "Rating.h"
+#include "User.h"
 using namespace std;
-class ModelRating : public QAbstractTableModel
+class ModelUser : public QAbstractTableModel
 {
     Q_OBJECT
 
 public:
-    explicit ModelRating(list<Rating*> * listData,QObject *parent = 0);
+    explicit ModelUser(list<User*> * listData,QObject *parent = 0);
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -27,8 +27,9 @@ public:
                  int role = Qt::EditRole) override;
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
-    QList<Rating*> * lists;
+    QList<User*> * lists;
+
 private:
 };
 
-#endif // MODELRATING_H
+#endif // MODELUSER_H
